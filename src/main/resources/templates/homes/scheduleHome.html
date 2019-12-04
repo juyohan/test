@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="'http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>시간표 입력하는 공간</h1>
+<form th:action="@{/homes/scheduleHome}" method="GET">
+    <a th:href="@{/scheduleList/scheduleInsertMonday}">월요일</a>
+    <a th:href="@{/scheduleList/scheduleInsertTuesday}">화요일</a>
+    <a th:href="@{/scheduleList/scheduleInsertWednesday}">수요일</a>
+    <a th:href="@{/scheduleList/scheduleInsertThursday}">목요일</a>
+    <a th:href="@{/scheduleList/scheduleInsertFriday}">금요일</a>
+</form>
+
+</body>
+</html>

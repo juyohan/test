@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="'http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>메인</title>
+    <link rel="stylesheet" th:href="@{/css/Button.css}"/>
+</head>
+<body>
+<h1>메인 페이지</h1>
+<form th:action="@{/home}" method="GET">
+    <div id="btn_group">
+   <a th:href="@{/homes/scheduleHome}" >시간표 입력</a>
+    <a th:href="@{/homes/scheduleShow}" >시간표 확인</a>
+    </div>
+</form>
+</body>
+</html>
