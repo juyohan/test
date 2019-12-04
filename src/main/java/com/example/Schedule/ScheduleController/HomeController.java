@@ -40,7 +40,7 @@ public class HomeController {
     // 시간표 확인
     @GetMapping("/homes/scheduleShow")
     public String showSchedule(Model model) throws Exception {
-        List<UserScheduleMonday> userList = userScheduleService.searchToSchedule();
+        List<UserScheduleMonday> userList = userScheduleService.searchToScheduleMonday();
         if (userList != null){
             model.addAttribute("userList", userList);
         }

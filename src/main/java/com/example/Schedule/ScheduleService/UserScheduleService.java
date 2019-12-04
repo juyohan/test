@@ -40,7 +40,7 @@ public class UserScheduleService {
     }
     // 월요일
     public UserScheduleMonday addToScheduleMonday(UserScheduleMonday userScheduleMonday) throws Exception{
-
+        userScheduleMonday.setUserId(userId);
         return userScheduleMondayRepository.save(userScheduleMonday);
     }
 
@@ -66,7 +66,7 @@ public class UserScheduleService {
 
 
     // 데이터 조회
-    public List<UserScheduleMonday> searchToSchedule() throws Exception {
+    public List<UserScheduleMonday> searchToScheduleMonday() throws Exception {
         List<UserScheduleMonday> userScheduleMondayList = userScheduleMondayRepository.findByUserId(userId
         );
         return userScheduleMondayList;

@@ -9,16 +9,26 @@
 <form th:action="@{/homes/scheduleShow}">
 <div th:unless="${#lists.isEmpty(userList)}">
     <dl th:each="userList : ${userList}">
-        Mon :
-        <span th:text="${userList.mon}"></span><br/>
-        Tue :
-        <span th:text="${userList.tue}"></span><br/>
-        Wed :
-        <span th:text="${userList.wed}"></span><br/>
-        Thu :
-        <span th:text="${userList.thu}"></span><br/>
-        Fri :
-        <span th:text="${userList.fri}"></span><br/>
+        1교시 :
+        <span th:text="${userList.firstLesson}"></span><br/>
+        2교시 :
+        <span th:text="${userList.secondLesson}"></span><br/>
+        3교시 :
+        <span th:text="${userList.thirdLesson}"></span><br/>
+        4교시 :
+        <span th:text="${userList.fourthLesson}"></span><br/>
+        5교시 :
+        <span th:text="${userList.fifthLesson}"></span><br/>
+        6교시 :
+        <span th:text="${userList.sixthLesson}"></span><br/>
+        7교시 :
+        <span th:text="${userList.seventhLesson}"></span><br/>
+        8교시 :
+        <span th:text="${userList.eighthLesson}"></span><br/>
+        9교시 :
+        <span th:text="${userList.ninthLesson}"></span><br/>
+        10교시 :
+        <span th:text="${userList.tenthLesson}"></span><br/>
         </dl>
     </div>
     <div th:if="${#lists.isEmpty(userList)}">

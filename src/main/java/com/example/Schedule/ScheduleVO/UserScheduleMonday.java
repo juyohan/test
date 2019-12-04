@@ -13,6 +13,7 @@ public class UserScheduleMonday {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String userId;
     private String firstLesson;
     private String secondLesson;
     private String thirdLesson;
@@ -24,7 +25,15 @@ public class UserScheduleMonday {
     private String ninthLesson;
     private String tenthLesson;
 
-//    @ManyToOne
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    //    @ManyToOne
 //    @JoinColumn(name = "UserSchedule_id")
 //    private UserSchedule userSchedule;
 //
