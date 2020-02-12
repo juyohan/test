@@ -8,10 +8,7 @@
 <body>
 <h1>메인 페이지</h1>
 <form th:action="@{/home}" method="GET">
-    <div id="btn_group">
-   <a th:href="@{/homes/scheduleHome}" >시간표 입력</a>
-    <a th:href="@{/homes/scheduleShow}" >시간표 확인</a>
-    </div>
+        <a th:href="@{|/${user.userid}/subjectInsert|}">과목 저장</a>
 </form>
 </body>
 </html>

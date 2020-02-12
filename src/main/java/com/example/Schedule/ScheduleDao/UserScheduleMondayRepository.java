@@ -2,6 +2,7 @@ package com.example.Schedule.ScheduleDao;
 
         import com.example.Schedule.ScheduleVO.UserSchedule;
         import com.example.Schedule.ScheduleVO.UserScheduleMonday;
+        import com.example.Schedule.ScheduleVO.UserVO;
         import org.springframework.data.jpa.repository.JpaRepository;
         import org.springframework.stereotype.Repository;
 
@@ -9,5 +10,5 @@ package com.example.Schedule.ScheduleDao;
 
 @Repository
 public interface UserScheduleMondayRepository extends JpaRepository<UserScheduleMonday, Long> {
-        List<UserScheduleMonday> findByUserId(String userId);
+        List<UserScheduleMonday> findByUserId(UserVO userid);
 }

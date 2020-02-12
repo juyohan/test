@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+</script>
+<form method="POST" th:action="@{/subjectAdd}" th:object="${subject}">
+    <input type="hidden" th:value="${user.userid}" name="userid"/>
+    <table>
+        <tr>
+            <td>요일 : </td>
+            <td><select th:field="*{day}">
+                <option value="월요일" selected>월요일</option>
+                <option value="화요일">화요일</option>
+                <option value="수요일">수요일</option>
+                <option value="목요일">목요일</option>
+                <option value="금요일">금요일</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>학점 : <select th:field="*{subjectMP}">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>과목명 :
+            <input type="text" th:field="*{subjectNm}"/></td>
+        </tr>
+        <tr>
+            <td>교수명 :
+            <input type="text" th:field="*{teacher}"/></td>
+        </tr>
+        <tr>
+            <td>장소 :
+            <input type="text" th:field="*{subjectRm}"/> </td>
+        </tr>
+        <tr>
+            <td>시간 : <select th:field="*{subjectSt}">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>교시 ~
+            <select th:field="*{subjectFn}">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>교시</td>
+        </tr>
+    </table>
+    <p>
+    <input type="submit" value="Submit"/><input type="reset" value="Reset"/>
+    </p>
+</form>
+</body>
+</html>

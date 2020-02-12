@@ -2,25 +2,39 @@ package com.example.Schedule.ScheduleVO;
 
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @ToString
-public class UserVO {
+public class UserVO implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="USERVO_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String userId;
+//    @Column(name="userId")
+    private String userid;
+
     private String userPassword;
-    private String userName;
+    private String username;
     private String birth;
     private String majorNb;
     private String phoneNb;
+
+    @OneToMany(mappedBy = "userVO", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<UserSchedule> userScheduleList = new ArrayList<>();
+
+    public List<UserSchedule> getUserScheduleList() {
+        return userScheduleList;
+    }
+
+    public void setUserScheduleList(List<UserSchedule> userScheduleList) {
+        this.userScheduleList = userScheduleList;
+    }
 
     public String getBirth() {
         return birth;
@@ -54,12 +68,12 @@ public class UserVO {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserid() {
+        return userid;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     public String getUserPassword() {
@@ -70,12 +84,23 @@ public class UserVO {
         this.userPassword = userPassword;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
+    public UserVO(){
+    }
+
+    public UserVO(String userid, String userPassword, String username, String birth, String majorNb, String phoneNb){
+        this.userid = userid;
+        this.userPassword = userPassword;
+        this.username = username;
+        this.birth = birth;
+        this.majorNb = majorNb;
+        this.phoneNb = phoneNb;
+    }
 }

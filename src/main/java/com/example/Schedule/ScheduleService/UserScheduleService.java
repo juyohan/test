@@ -1,74 +1,26 @@
 package com.example.Schedule.ScheduleService;
 
-        import com.example.Schedule.ScheduleDao.*;
-        import com.example.Schedule.ScheduleVO.*;
-        import lombok.AllArgsConstructor;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.stereotype.Service;
+import com.example.Schedule.ScheduleVO.*;
+import com.example.Schedule.SubjectClassVO.SubjectClass;
 
-        import java.util.List;
-        import java.lang.Exception;
+public interface UserScheduleService {
 
-// 이게 논리적인 작업을 여기서 수행한다. dto가
-@Service
-@AllArgsConstructor
-public class UserScheduleService {
-    private static final String userId="yohan";
+    // 각 테이블에 데이터 값 저장.
+    public UserVO saveUserVO (UserVO userVO);
+    public UserScheduleMonday saveMonday(SubjectClass subjectClass);
+    public UserScheduleTuesday saveTuesday(UserScheduleTuesday userScheduleTuesday, String username);
+    public UserScheduleWednesday saveWednesday(UserScheduleWednesday userScheduleWednesday, String username);
+    public UserScheduleThursday saveThursday(UserScheduleThursday userScheduleThursday, String username);
+    public UserScheduleFriday saveFriday(UserScheduleFriday userScheduleFriday, String username);
 
-    @Autowired
-    private UserScheduleRepository userScheduleRepository;
+    // 이름 찾기.
+//    public UserVO findByMajorNb(String majorNb);
+    public UserVO findUserVOByUserid(String userid);
 
-    @Autowired
-    private UserScheduleMondayRepository userScheduleMondayRepository;
+    // UserSchedule 테이블에 연관관계 만들기.
+    public UserSchedule addUserVO(UserVO userVO);
+    public UserSchedule addMonday(UserScheduleMonday userScheduleMonday,Long seq);
 
-    @Autowired
-    private UserScheduleTuesdayRepository userScheduleTuesdayRepository;
+    // 해당 요일에 저장된 시간과 입력한 시간이 동일한 경우
 
-    @Autowired
-    private UserScheduleWednesdayRepository userScheduleWednesdayRepository;
-
-    @Autowired
-    private UserScheduleThursdayRepository userScheduleThursdayRepository;
-
-    @Autowired
-    private UserScheduleFridayRepository userScheduleFridayRepository;
-
-    // 데이터 저장 (유저 정보)
-    public UserSchedule addToSchedule(UserSchedule userSchedule) throws Exception {
-        userSchedule.setUserId(userId);
-        return userScheduleRepository.save(userSchedule);
-    }
-    // 월요일
-    public UserScheduleMonday addToScheduleMonday(UserScheduleMonday userScheduleMonday) throws Exception{
-        userScheduleMonday.setUserId(userId);
-        return userScheduleMondayRepository.save(userScheduleMonday);
-    }
-
-    // 화요일
-    public UserScheduleTuesday addToScheduleTuesday(UserScheduleTuesday userScheduleTuesday) throws Exception{
-        return userScheduleTuesdayRepository.save(userScheduleTuesday);
-    }
-
-    //수요일
-    public UserScheduleWednesday addToScheduleWednesday(UserScheduleWednesday userScheduleWednesday) throws Exception{
-        return userScheduleWednesdayRepository.save(userScheduleWednesday);
-    }
-
-    // 목요일
-    public UserScheduleThursday addToScheduleThursday(UserScheduleThursday userScheduleThursday) throws Exception{
-        return userScheduleThursdayRepository.save(userScheduleThursday);
-    }
-
-    //금요일
-    public UserScheduleFriday addToScheduleFriday(UserScheduleFriday userScheduleFriday) throws Exception{
-        return userScheduleFridayRepository.save(userScheduleFriday);
-    }
-
-
-    // 데이터 조회
-    public List<UserScheduleMonday> searchToScheduleMonday() throws Exception {
-        List<UserScheduleMonday> userScheduleMondayList = userScheduleMondayRepository.findByUserId(userId
-        );
-        return userScheduleMondayList;
-    }
 }
