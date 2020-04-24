@@ -1,13 +1,12 @@
-package com.example.Schedule.SubjectClassVO;
+package com.example.Schedule.ScheduleDto;
+
+import com.example.Schedule.SubjectClassVO.SubjectClass;
+import lombok.ToString;
 
 import javax.persistence.*;
 
-@Entity
-public class SubjectClass {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@ToString
+public class SubjectClassDTO extends SubjectClass {
 
     private String subjectNm;
     private String teacher;
@@ -19,14 +18,10 @@ public class SubjectClass {
 
     private String userid;
 
-    public SubjectClass(){}
+    public SubjectClassDTO(){}
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public SubjectClassDTO(String userid){
+        this.userid = userid;
     }
 
     public String getTeacher() {
@@ -91,20 +86,5 @@ public class SubjectClass {
 
     public void setUserid(String userid) {
         this.userid = userid;
-    }
-
-    @Override
-    public String toString() {
-        return "SubjectClass{" +
-                "id=" + id +
-                ", subjectNm='" + subjectNm + '\'' +
-                ", teacher='" + teacher + '\'' +
-                ", day='" + day + '\'' +
-                ", subjectSt=" + subjectSt +
-                ", subjectFn=" + subjectFn +
-                ", subjectRm='" + subjectRm + '\'' +
-                ", subjectMP=" + subjectMP +
-                ", userid='" + userid + '\'' +
-                '}';
     }
 }

@@ -4,8 +4,6 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @ToString
@@ -16,25 +14,12 @@ public class UserVO implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(name="userId")
     private String userid;
-
     private String userPassword;
     private String username;
     private String birth;
     private String majorNb;
     private String phoneNb;
-
-    @OneToMany(mappedBy = "userVO", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<UserSchedule> userScheduleList = new ArrayList<>();
-
-    public List<UserSchedule> getUserScheduleList() {
-        return userScheduleList;
-    }
-
-    public void setUserScheduleList(List<UserSchedule> userScheduleList) {
-        this.userScheduleList = userScheduleList;
-    }
 
     public String getBirth() {
         return birth;
@@ -95,12 +80,12 @@ public class UserVO implements Serializable {
     public UserVO(){
     }
 
-    public UserVO(String userid, String userPassword, String username, String birth, String majorNb, String phoneNb){
-        this.userid = userid;
-        this.userPassword = userPassword;
-        this.username = username;
-        this.birth = birth;
-        this.majorNb = majorNb;
-        this.phoneNb = phoneNb;
-    }
+//    public UserVO(String userid, String userPassword, String username, String birth, String majorNb, String phoneNb){
+//        this.userid = userid;
+//        this.userPassword = userPassword;
+//        this.username = username;
+//        this.birth = birth;
+//        this.majorNb = majorNb;
+//        this.phoneNb = phoneNb;
+//    }
 }

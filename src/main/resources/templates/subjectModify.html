@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="'http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <script type="text/javascript">
+
+        function CheckForm(day) {
+            var arr_Day = document.getElementsByName("요일"); // "요일"이라고 되어있는 이름의 값들을 arr_Day에 넣음
+            for (var i = 0; i < arr_Day.length; i++) { // arr_Day라는 배열의 길이만큼 반복함
+                if (arr_Day[i] != day) { // arr_Day[i]에 있는 값이 누른 값 즉, 해당 값과 같은지 비교하고 아니라면
+                    arr_Day[i].checked = false; // arr_Day[i] 번째의 체크를 푼다.
+                }
+                // if(arr_Day[i].checked){
+                //     var test12 = arr_Day[i].value;
+                //     DayForm(test12);
+                // }
+            }
+            // var select_day = $('input:checkbox[name="요일"]:checked').val();
+            // alert(select_day);
+            //
+            // $.ajax({
+            //     url : 'subjectModify',
+            //     type : 'GET',
+            //     datatype : 'text',
+            //     data : {
+            //         ChooseDay : select_day
+            //     }
+            //     });
+        }
+
+        // function DayForm(selectDay){
+        //     $('days')
+        // }
+
+        // $('input:checkbox[name="요일"]:checked').checked(function () {
+        //     var test12 = $(this).val();
+        //     alert(test12);
+        // });
+
+
+        // $('input:radio[name="요일"]:checked').checked(function () {
+        //     // $("#days").text($('input:checked[name="요일"]').value);
+        //     var Test = $(this).val();
+        //     alert(Test);
+        // })
+
+        //
+        // $("#check").checked(function () {
+        //     $("#days").text($('input:checkbox:checked').value);
+        // })
+
+    </script>
+</head>
+<body>
+<form  action="@{/subjectModify}" method="get" >
+<!--    <input type="checkbox" value="월요일" name="요일" onclick="CheckForm(this)" id="monday" >-->
+<!--    <label for="monday">월요일</label>-->
+<!--    <input type="checkbox" value="화요일" name="요일" onclick="CheckForm(this)" id="tuesday">-->
+<!--    <label for="tuesday">화요일</label>-->
+<!--    <input type="checkbox" value="수요일" name="요일" onclick="CheckForm(this)" id="wednesday">-->
+<!--    <label for="wednesday">수요일</label>-->
+<!--    <input type="checkbox" value="목요일" name="요일" onclick="CheckForm(this)" id="thursday">-->
+<!--    <label for="thursday">목요일</label>-->
+<!--    <input type="checkbox" value="금요일" name="요일" onclick="CheckForm(this)" id="friday" th:value="금요일" th:name="*{day}">-->
+<!--    <label for="friday">금요일</label>-->
+
+<!--    <dl>-->
+<!--        <select th:field="*{subjectNm}">-->
+<!--            <option th:each="list : ${subjectList}"-->
+<!--            th:value="${list.userid}"-->
+<!--            th:utext="${list.subjectNm}"></option>-->
+<!--        </select>-->
+<!--    </dl>-->
+<!--    <input type="submit" value="Submit"/>-->
+    sdlkfjdsklflj
+
+
+</form>
+<!--<form th:action="/selectMajor" method="post" >-->
+
+
+<!--</form>-->
+
+
+</body>
+</html>

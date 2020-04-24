@@ -7,9 +7,10 @@
 <body>
 <script>
 
+
 </script>
-<form method="POST" th:action="@{/subjectAdd}" th:object="${subject}">
-    <input type="hidden" th:value="${user.userid}" name="userid"/>
+<form id="subjectadd" method="POST" th:action="@{/subjectAdd}" th:object="${subject}">
+    <input type="hidden" th:value="${user}" name="userid" />
     <table>
         <tr>
             <td>요일 : </td>
@@ -67,9 +68,11 @@
             </select>교시</td>
         </tr>
     </table>
+    <input type="hidden" th:value="${user}" th:name="*{userid}"/>
     <p>
-    <input type="submit" value="Submit"/><input type="reset" value="Reset"/>
+    <input type="submit" value="Submit"/>
     </p>
 </form>
+
 </body>
 </html>

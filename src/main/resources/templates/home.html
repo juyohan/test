@@ -8,7 +8,9 @@
 <body>
 <h1>메인 페이지</h1>
 <form th:action="@{/home}" method="GET">
-        <a th:href="@{|/${user.userid}/subjectInsert|}">과목 저장</a>
+        <a th:href="@{/subjectInsert}">과목 저장</a>
+        <a th:href="@{/subjectSelectDay}">과목 수정</a>
 </form>
+
 </body>
 </html>

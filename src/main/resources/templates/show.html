@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="'http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/show}" method="GET">
+    <tr th:each="user : ${test}">
+        <!--    <div th:unless="${#list.isEmpty(userList)}">-->
+        <!--            <dl th:each="userList : "-->
+        <!--    </div>-->
+        <td>Day : </td>
+        <dd th:text="*{user.day}"></dd>
+        <td>선생님 : </td>
+        <dd th:text="*{user.teacher}"></dd>
+        <td>수업 시간 : </td>
+        <dd th:text="*{user.subjectSt}"></dd>
+    </tr>
+</form>
+
+</body>
+</html>
