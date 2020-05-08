@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@ToString
 public class UserVO implements Serializable {
 
     @Id
@@ -80,7 +79,20 @@ public class UserVO implements Serializable {
     public UserVO(){
     }
 
-//    public UserVO(String userid, String userPassword, String username, String birth, String majorNb, String phoneNb){
+    @Override
+    public String toString() {
+        return "UserVO{" +
+                "id=" + id +
+                ", userid='" + userid + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", username='" + username + '\'' +
+                ", birth='" + birth + '\'' +
+                ", majorNb='" + majorNb + '\'' +
+                ", phoneNb='" + phoneNb + '\'' +
+                '}';
+    }
+
+    //    public UserVO(String userid, String userPassword, String username, String birth, String majorNb, String phoneNb){
 //        this.userid = userid;
 //        this.userPassword = userPassword;
 //        this.username = username;

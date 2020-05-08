@@ -10,4 +10,6 @@ import java.util.List;
 public interface SubjectClassRepository extends JpaRepository<SubjectClass, Long> {
    List<SubjectClass> findByUseridAndDay(String userid, String day); // 아이디 검색
 
+   List<SubjectClass> findByUserid(String userid);
+
 }

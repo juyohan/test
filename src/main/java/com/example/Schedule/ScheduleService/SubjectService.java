@@ -8,7 +8,7 @@ import java.util.List;
 public interface SubjectService {
     public SubjectClass subjectSave(SubjectClass subjectClass);
 
-    public List<SubjectClass> subjectFindList(SubjectClass subjectClass);
+    public List<SubjectClass> subjectFindUserid(String userid);
 
     public boolean subjectFindTime(List<SubjectClass> subjectClassList, SubjectClass subjectClass);
 

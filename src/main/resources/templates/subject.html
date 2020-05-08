@@ -5,18 +5,17 @@
     <title>Title</title>
     <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
     <script type="text/javascript">
-
-        function CheckForm(day) {
-            var arr_Day = document.getElementsByName("요일"); // "요일"이라고 되어있는 이름의 값들을 arr_Day에 넣음
-            for (var i = 0; i < arr_Day.length; i++) { // arr_Day라는 배열의 길이만큼 반복함
-                if (arr_Day[i] != day) { // arr_Day[i]에 있는 값이 누른 값 즉, 해당 값과 같은지 비교하고 아니라면
-                    arr_Day[i].checked = false; // arr_Day[i] 번째의 체크를 푼다.
-                }
+        // function CheckForm(day) {
+        //     var arr_Day = document.getElementsByName("요일"); // "요일"이라고 되어있는 이름의 값들을 arr_Day에 넣음
+        //     for (var i = 0; i < arr_Day.length; i++) { // arr_Day라는 배열의 길이만큼 반복함
+        //         if (arr_Day[i] != day) { // arr_Day[i]에 있는 값이 누른 값 즉, 해당 값과 같은지 비교하고 아니라면
+        //             arr_Day[i].checked = false; // arr_Day[i] 번째의 체크를 푼다.
+        //         }
                 // if(arr_Day[i].checked){
                 //     var test12 = arr_Day[i].value;
                 //     DayForm(test12);
                 // }
-            }
+            // }
             // var select_day = $('input:checkbox[name="요일"]:checked').val();
             // alert(select_day);
             //
@@ -28,7 +27,7 @@
             //         ChooseDay : select_day
             //     }
             //     });
-        }
+        // }
 
         // function DayForm(selectDay){
         //     $('days')

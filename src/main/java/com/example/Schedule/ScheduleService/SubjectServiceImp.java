@@ -24,8 +24,8 @@ public class SubjectServiceImp implements SubjectService {
 
     // id와 요일 or 과목명으로 해당 시간표를 찾은 후 대입
     @Override
-    public List<SubjectClass> subjectFindList(SubjectClass subjectClass) {
-            List<SubjectClass> subjectClassList = subjectClassRepository.findByUseridAndDay(subjectClass.getUserid(), subjectClass.getDay());
+    public List<SubjectClass> subjectFindUserid(String userid) {
+            List<SubjectClass> subjectClassList = subjectClassRepository.findByUserid(userid);
             return subjectClassList;
     }
 

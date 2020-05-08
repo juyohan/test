@@ -16,8 +16,8 @@
             var select_day = $('input:checkbox[name="요일"]:checked').val();
 
             $.ajax({
-                url : 'subjectSelectDay',
-                type : 'POST',
+                url : '/subjectSelect',
+                type : 'post',
                 datatype : 'text',
                 data : {
                     ChooseDay : select_day
@@ -49,8 +49,8 @@
     </script>
 </head>
 <body>
-<form action="@{/subjectSelectDay}" method="get">
-    <input type="checkbox" value="월요일" name="요일" onclick="CheckForm(this)" id="monday" >
+<form th:action="@{/subjectSelectDay}" method="get">
+    <input type="checkbox" value="월요일" name="요일" onclick="CheckForm(this)" id="monday">
     <label for="monday">월요일</label>
     <input type="checkbox" value="화요일" name="요일" onclick="CheckForm(this)" id="tuesday">
     <label for="tuesday">화요일</label>
@@ -62,21 +62,25 @@
     <label for="friday">금요일</label>
 </form>
 
-
-<!--<form th:action="/selectMajor" method="post" >-->
-
+<form th:action="@{/subjectSelect}" method="post">
 <!--        <dl>-->
-<!--            <select th:field="*{subjectNm}">-->
+<!--            <select>-->
 <!--                <option th:each="list : ${subjectList}"-->
 <!--                        th:value="${list.userid}"-->
 <!--                        th:utext="${list.subjectNm}"></option>-->
 <!--            </select>-->
 <!--        </dl>-->
-<!--        <input type="submit" value="Submit"/>-->
 
+</form>
 
-<!--</form>-->
-
+<form th:action="@{/subjectModify}" method="post">
+    <dl th:each="list : ${subjectList}">
+        <span th:text="${list.subjectNm}"> name </span>
+        <span th:text="${list.userid}"> hello</span>
+    </dl>
+    <span>sldkjflskdjfklsdjflk hello</span>
+    <input type="submit" value="submit"/>
+</form>
 
 </body>
 </html>

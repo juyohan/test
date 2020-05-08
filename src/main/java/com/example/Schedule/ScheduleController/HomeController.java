@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.ObjectUtils;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -85,7 +87,7 @@ public class HomeController {
 
         boolean name = false , time = false;
 
-        List<SubjectClass> subjectClassList = subjectServiceImp.subjectFindList(subjectClass); // 입력한 이름과 요일 / 과목명에 해당하는 값을 가져옴
+        List<SubjectClass> subjectClassList = subjectServiceImp.subjectListFind(subjectClass.getUserid(), subjectClass.getDay()); // 입력한 이름과 요일 / 과목명에 해당하는 값을 가져옴
 
         for (int i = 0 ; i < 2 ; i++) {
             if (i == 0) {
@@ -110,39 +112,37 @@ public class HomeController {
     }
 
     @GetMapping("/subjectSelectDay")
-    public String selectDaySubject(HttpServletRequest request){
-//        HttpSession httpSession = request.getSession(false);
-//        UserVO userVO = (UserVO) httpSession.getAttribute("sessionUser");
-
-        return "/subjectSelectDay";
-    }
-
-    @PostMapping("/subjectSelectDay")
-    public String selectDaySubject(@RequestParam(value = "ChooseDay") String chooseDay, Model model, HttpServletRequest request){
+    public String selectDaySubject(HttpServletRequest request, Model model){
         HttpSession httpSession = request.getSession(false);
         UserVO userVO = (UserVO) httpSession.getAttribute("sessionUser");
-        System.out.println(userVO.toString());
-        System.out.println(chooseDay);
+
+        List<SubjectClass> subjectClassList = subjectServiceImp.subjectFindUserid(userVO.getUserid());
+
+        if (subjectClassList != null && subjectClassList.size() > 0){
+            return "/subjectSelectDay";
+        }
+        else
+            return "/home";
+    }
+
+    @PostMapping("/subjectSelect")
+    public String selectDaySubject(@RequestParam(value = "ChooseDay") String chooseDay, HttpServletRequest request, Model model){
+        HttpSession httpSession = request.getSession(false);
+        UserVO userVO = (UserVO) httpSession.getAttribute("sessionUser");
 
         List<SubjectClass> subjectClassList = subjectServiceImp.subjectListFind(userVO.getUserid(), chooseDay);
 
         model.addAttribute("subjectList", subjectClassList);
 
-        System.out.println(subjectClassList);
-
-        return "/subjectModify";
-    }
-
-    @GetMapping("/subjectModify")
-    public String modifySubject( Model model){
-        System.out.println("sdfsdfsdf");
         return "/subjectModify";
     }
 
     @PostMapping("/subjectModify")
-    public String selectMajorSubject(){
-        return "/subjectModify";
+    public String modifySubject(Model model){
+
+        return "/home";
     }
+
 
 //    @GetMapping("/{userid}/show")
 //    public String showSubject(@PathVariable String userid, Model model){
